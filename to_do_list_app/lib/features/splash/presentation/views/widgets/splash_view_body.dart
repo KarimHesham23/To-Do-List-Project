@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:to_do_list_app/core/utils/assets.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
+import 'package:to_do_list_app/features/start/presentation/views/start_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
@@ -19,6 +21,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initialScaleAnimation();
+    navigateToStart();
   }
 
   @override
@@ -75,6 +78,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
     // Start the animation after a short delay (e.g., 2 seconds).
     Future.delayed(const Duration(seconds: 1), () {
       _controller.forward();
+    });
+  }
+
+  void navigateToStart() {
+    Future.delayed(const Duration(seconds: 3), () {
+      context.goNamed(StartView.id);
     });
   }
 }

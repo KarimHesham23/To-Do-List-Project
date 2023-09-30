@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:to_do_list_app/features/splash/presentation/views/splash_view.dart';
 import 'package:to_do_list_app/features/splash/presentation/views/widgets/splash_view_body.dart';
@@ -16,8 +17,25 @@ abstract class AppRoute {
       GoRoute(
         name: StartView.id,
         path: kStartView,
-        builder: (context, state) => const StartView(),
+        pageBuilder: (context, state) {
+          return customAnimationRoute(state, const StartView(), 500);
+        },
       ),
     ],
   );
+  static CustomTransitionPage<void> customAnimationRoute(
+      GoRouterState state, child, int duration) {
+    return CustomTransitionPage<void>(
+      key: state.pageKey,
+      child: child,
+      transitionDuration: Duration(milliseconds: duration),
+      transitionsBuilder: (BuildContext context, Animation<double> animation,
+          Animation<double> secondaryAnimation, Widget child) {
+        return FadeTransition(
+          opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+          child: child,
+        );
+      },
+    );
+  }
 }
