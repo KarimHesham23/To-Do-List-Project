@@ -18,19 +18,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
-
-    _controller = AnimationController(
-      vsync: this,
-      duration:
-          const Duration(milliseconds: 500), // Adjust the duration as needed.
-    );
-
-    _scaleAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
-
-    // Start the animation after a short delay (e.g., 2 seconds).
-    Future.delayed(const Duration(seconds: 1), () {
-      _controller.forward();
-    });
+    initialScaleAnimation();
   }
 
   @override
@@ -73,5 +61,20 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ),
       ],
     );
+  }
+
+  void initialScaleAnimation() {
+    _controller = AnimationController(
+      vsync: this,
+      duration:
+          const Duration(milliseconds: 500), // Adjust the duration as needed.
+    );
+
+    _scaleAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+
+    // Start the animation after a short delay (e.g., 2 seconds).
+    Future.delayed(const Duration(seconds: 1), () {
+      _controller.forward();
+    });
   }
 }
