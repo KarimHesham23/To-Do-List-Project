@@ -18,7 +18,7 @@ abstract class AppRoute {
         name: StartView.id,
         path: kStartView,
         pageBuilder: (context, state) {
-          return customAnimationRoute(state, const StartView(), 500);
+          return customAnimationRoute(state, const StartView(), 1000);
         },
       ),
     ],

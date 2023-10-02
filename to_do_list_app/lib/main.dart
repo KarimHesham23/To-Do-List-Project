@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/routes.dart';
 
@@ -16,7 +17,7 @@ class DoItNow extends StatelessWidget {
       routerConfig: AppRoute.router,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
-        textTheme: ThemeData.dark().textTheme,
+        textTheme: GoogleFonts.robotoTextTheme(ThemeData.dark().textTheme),
       ),
     );
   }

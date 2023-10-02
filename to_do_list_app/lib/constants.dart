@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
 
 const kPrimaryColor = Color(0xff1A1A2F);
+const kPSecondryColor = Color(0xff7A12FF);
 const kArvoFamily = "Arvo";

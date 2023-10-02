@@ -49,10 +49,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ScaleTransition(
           scale: _scaleAnimation,
           child: Text(
-            "DO IT NOW",
-            style: Styles.logoTextSyle.copyWith(
-              fontSize: 34,
-            ),
+            "DoItNow",
+            style: Styles.logoTextSyle
+                .copyWith(fontSize: 60, fontWeight: FontWeight.bold),
           ),
         ),
         ScaleTransition(
