@@ -23,9 +23,6 @@ class _StartViewBodyState extends State<StartViewBody> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(
-                  width: double.infinity,
-                ),
                 Image.asset(AssetsApp.icon),
                 Text(
                   "DoItNow",
@@ -40,9 +37,11 @@ class _StartViewBodyState extends State<StartViewBody> {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
-                  height: 60,
+                  height: 50,
                 ),
-                const AnimatedButton()
+                AnimatedButton(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                ),
               ],
             ),
           ),

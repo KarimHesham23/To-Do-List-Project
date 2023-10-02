@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
+import 'package:to_do_list_app/features/start/presentation/views/widgets/sign_in_dialog.dart';
 
 class AnimatedButton extends StatefulWidget {
-  const AnimatedButton({super.key});
+  const AnimatedButton({super.key, required this.width});
+  final double width;
 
   @override
   State<AnimatedButton> createState() => _AnimatedButtonState();
@@ -18,6 +20,12 @@ class _AnimatedButtonState extends State<AnimatedButton>
   void initState() {
     initalAnimation();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -43,10 +51,10 @@ class _AnimatedButtonState extends State<AnimatedButton>
         ),
         GestureDetector(
           onTap: () {
-            _controller.forward();
+            signIn(context);
           },
           child: Container(
-            width: 250,
+            width: widget.width,
             height: 60,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -79,12 +87,38 @@ class _AnimatedButtonState extends State<AnimatedButton>
     );
   }
 
+  void signIn(BuildContext context) {
+    _controller.forward();
+
+    Future.delayed(
+      const Duration(milliseconds: 500),
+      () {
+        showGeneralDialog(
+          barrierDismissible: true,
+          barrierLabel: "Sign In",
+          context: context,
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const SignInDialog();
+          },
+        );
+      },
+    );
+    Future.delayed(
+      const Duration(
+        milliseconds: 580,
+      ),
+      () {
+        _controller.reset();
+      },
+    );
+  }
+
   void initalAnimation() {
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
     _curve = CurvedAnimation(parent: _controller, curve: Curves.easeInCubic);
-    _animation = Tween(begin: 0.0, end: 250.0).animate(_curve);
+    _animation = Tween(begin: 0.0, end: widget.width).animate(_curve);
   }
 }
