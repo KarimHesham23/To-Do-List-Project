@@ -26,14 +26,14 @@ class _StartViewBodyState extends State<StartViewBody> {
                 Image.asset(AssetsApp.icon),
                 Text(
                   "DoItNow",
-                  style: Styles.logoTextSyle
-                      .copyWith(fontSize: 60, fontWeight: FontWeight.bold),
-                ),
-                const Text(
-                  "A to-do list is your roadmap to success, keeping you on track and ensuring you never lose sight of your goals. Embrace its power and watch your productivity soar.",
-                  style: TextStyle(
-                    fontSize: 14,
+                  style: Styles.logoTextSyle.copyWith(
+                    fontSize: 60,
+                    fontWeight: FontWeight.bold,
                   ),
+                ),
+                Text(
+                  "A to-do list is your roadmap to success, keeping you on track and ensuring you never lose sight of your goals. Embrace its power and watch your productivity soar.",
+                  style: Styles.styleText14,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
