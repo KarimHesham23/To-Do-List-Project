@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do_list_app/core/utils/assets.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/animation_button.dart';
-import 'package:to_do_list_app/features/start/presentation/views/widgets/background_section.dart';
+// import 'package:to_do_list_app/features/start/presentation/views/widgets/background_section.dart';
 
 class StartViewBody extends StatefulWidget {
   const StartViewBody({super.key});
@@ -16,7 +16,7 @@ class _StartViewBodyState extends State<StartViewBody> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const BackgroundSection(),
+        // const BackgroundSection(),
         SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),

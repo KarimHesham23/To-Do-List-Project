@@ -6,12 +6,21 @@ abstract class Styles {
     fontSize: 24,
     fontFamily: kArvoFamily,
   );
-  static var styleText14 = const TextStyle(fontSize: 14);
-  static var styleText16 = const TextStyle(fontSize: 16);
   static var styleText12 = const TextStyle(
     fontSize: 12,
     color: Color(
       0xff777E99,
     ),
+  );
+  static var styleText14 = const TextStyle(
+    fontSize: 14,
+  );
+  static var styleText16 = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
+  static var styleText18 = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
   );
 }
