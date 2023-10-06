@@ -6,7 +6,6 @@ import 'package:to_do_list_app/features/start/presentation/views/start_view.dart
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
-  static String id = "Splash View";
 
   @override
   State<SplashViewBody> createState() => _SplashViewBodyState();
@@ -32,6 +31,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -42,16 +44,18 @@ class _SplashViewBodyState extends State<SplashViewBody>
           scale: _scaleAnimation,
           child: Image.asset(
             AssetsApp.icon,
-            height: 181,
-            width: 156,
+            height: screenHeight * 0.2, // Adjust these values as needed
+            width: screenWidth * 0.6,
           ),
         ),
         ScaleTransition(
           scale: _scaleAnimation,
           child: Text(
             "DoItNow",
-            style: Styles.logoTextSyle
-                .copyWith(fontSize: 60, fontWeight: FontWeight.bold),
+            style: Styles.logoTextSyle.copyWith(
+              fontSize: screenHeight * 0.06, // Adjust the font size
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         ScaleTransition(
@@ -68,16 +72,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initialScaleAnimation() {
     _controller = AnimationController(
       vsync: this,
-      duration:
-          const Duration(milliseconds: 500), // Adjust the duration as needed.
+      duration: const Duration(milliseconds: 500),
     );
 
     _scaleAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
 
-    // Start the animation after a short delay (e.g., 2 seconds).
-    Future.delayed(const Duration(seconds: 1), () {
-      _controller.forward();
-    });
+    Future.delayed(
+      const Duration(seconds: 1),
+      () {
+        _controller.forward();
+      },
+    );
   }
 
   void navigateToStart() {

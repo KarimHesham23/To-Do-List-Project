@@ -13,9 +13,9 @@ class AnimatedButton extends StatefulWidget {
 
 class _AnimatedButtonState extends State<AnimatedButton>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation _animation;
-  late Animation<double> _curve;
+  late AnimationController _controllerButton;
+  late Animation _animationButton;
+  late Animation<double> _curveButton;
   @override
   void initState() {
     initalAnimation();
@@ -23,8 +23,16 @@ class _AnimatedButtonState extends State<AnimatedButton>
   }
 
   @override
+  void didUpdateWidget(covariant AnimatedButton oldWidget) {
+    _animationButton =
+        Tween(begin: 0.0, end: widget.width).animate(_curveButton);
+
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   void dispose() {
-    _controller.dispose();
+    _controllerButton.dispose();
     super.dispose();
   }
 
@@ -33,16 +41,16 @@ class _AnimatedButtonState extends State<AnimatedButton>
     return Stack(
       children: [
         AnimatedBuilder(
-          animation: _animation,
+          animation: _animationButton,
           builder: (context, child) => Container(
-            width: _animation.value,
+            width: _animationButton.value,
             height: 60,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: kPSecondryColor,
+              color: kSecondaryColor,
               gradient: const LinearGradient(
                 colors: [
-                  kPSecondryColor,
+                  kSecondaryColor,
                   Colors.white,
                 ],
               ),
@@ -60,7 +68,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
               borderRadius: BorderRadius.circular(10),
               color: Colors.transparent,
               border: Border.all(
-                color: kPSecondryColor,
+                color: kSecondaryColor,
               ),
             ),
             child: Center(
@@ -88,37 +96,54 @@ class _AnimatedButtonState extends State<AnimatedButton>
   }
 
   void signIn(BuildContext context) {
-    _controller.forward();
+    _controllerButton.forward();
 
     Future.delayed(
       const Duration(milliseconds: 500),
       () {
-        showGeneralDialog(
-          barrierDismissible: true,
-          barrierLabel: "Sign In",
-          context: context,
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return const SignInDialog();
-          },
-        );
+        customSignInDialog(context);
       },
     );
     Future.delayed(
       const Duration(
-        milliseconds: 580,
+        milliseconds: 1000,
       ),
       () {
-        _controller.reset();
+        _controllerButton.reverse();
+      },
+    );
+  }
+
+  void customSignInDialog(BuildContext context) {
+    showGeneralDialog(
+      transitionDuration: const Duration(milliseconds: 500),
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        Tween<Offset> animtionDialog =
+            Tween(begin: const Offset(0, -1), end: const Offset(0, 0));
+        return SlideTransition(
+          position: animtionDialog.animate(
+            CurvedAnimation(parent: animation, curve: Curves.easeInOut),
+          ),
+          child: child,
+        );
+      },
+      barrierDismissible: true,
+      barrierLabel: "Sign In",
+      context: context,
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return const SignInDialog();
       },
     );
   }
 
   void initalAnimation() {
-    _controller = AnimationController(
+    _controllerButton = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
-    _curve = CurvedAnimation(parent: _controller, curve: Curves.easeInCubic);
-    _animation = Tween(begin: 0.0, end: widget.width).animate(_curve);
+    _curveButton =
+        CurvedAnimation(parent: _controllerButton, curve: Curves.easeInCubic);
+    _animationButton =
+        Tween(begin: 0.0, end: widget.width).animate(_curveButton);
   }
 }

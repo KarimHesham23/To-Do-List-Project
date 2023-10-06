@@ -3,6 +3,7 @@ import 'package:to_do_list_app/features/splash/presentation/views/widgets/splash
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
+  static String id = "Splash View";
 
   @override
   Widget build(BuildContext context) {

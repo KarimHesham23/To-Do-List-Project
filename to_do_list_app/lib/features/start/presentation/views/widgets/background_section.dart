@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:to_do_list_app/core/utils/assets.dart';

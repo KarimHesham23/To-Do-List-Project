@@ -9,17 +9,31 @@ class SignInDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: MediaQuery.of(context).size.height * .78,
-        margin: const EdgeInsets.symmetric(horizontal: 18),
+        height: MediaQuery.of(context).size.height * 0.78,
+        margin: EdgeInsets.only(
+          right: 18,
+          left: 18,
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
         padding: const EdgeInsets.symmetric(
           horizontal: 24,
           vertical: 32,
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
-          color: kPrimaryColor,
+          color: kPrimaryColor.withOpacity(0.97),
+          boxShadow: [
+            BoxShadow(
+              color:
+                  kSecondaryColor.withOpacity(0.5), // Shadow color and opacity
+              spreadRadius: 5, // Spread radius
+              blurRadius: 10, // Blur radius
+              offset: const Offset(0, 3), // Offset from top left
+            ),
+          ],
         ),
         child: const Scaffold(
+          resizeToAvoidBottomInset: false,
           backgroundColor: Colors.transparent,
           body: SginInBody(),
         ),
