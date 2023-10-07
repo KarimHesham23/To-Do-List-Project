@@ -16,6 +16,13 @@ class CustomTextFormFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return "This Filed Required";
+        } else {
+          return null;
+        }
+      },
       onSaved: onSaved,
       decoration: InputDecoration(
         filled: true,

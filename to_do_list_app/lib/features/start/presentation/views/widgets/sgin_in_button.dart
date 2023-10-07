@@ -4,8 +4,8 @@ import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
 
 class SginInButton extends StatelessWidget {
-  const SginInButton({super.key});
-
+  const SginInButton({super.key, required this.onPressed});
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,7 +21,7 @@ class SginInButton extends StatelessWidget {
               bottomLeft: Radius.circular(25),
               bottomRight: Radius.circular(25),
             ))),
-        onPressed: () {},
+        onPressed: onPressed,
         icon: const Icon(FontAwesomeIcons.arrowRight),
         label: Text(
           "Sgin in",

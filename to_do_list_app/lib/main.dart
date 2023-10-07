@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_list_app/constants.dart';
+import 'package:to_do_list_app/core/utils/get_locator.dart';
 import 'package:to_do_list_app/core/utils/routes.dart';
 
 void main() {
+  setupLocator();
   runApp(const DoItNow());
 }
 

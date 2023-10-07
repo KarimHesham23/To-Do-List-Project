@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/assets.dart';
+import 'package:to_do_list_app/core/utils/get_locator.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
 import 'package:to_do_list_app/features/start/presentation/views/start_view.dart';
+import 'package:to_do_list_app/features/tasks/presentation/views/tasks_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
@@ -43,7 +47,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ScaleTransition(
           scale: _scaleAnimation,
           child: Image.asset(
-            AssetsApp.icon,
+            AssetsApp.appIcon,
             height: screenHeight * 0.2, // Adjust these values as needed
             width: screenWidth * 0.6,
           ),
@@ -87,7 +91,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToStart() {
     Future.delayed(const Duration(seconds: 3), () {
-      context.goNamed(StartView.id);
+      if (getIt.get<SharedPreferences>().getString(kUserName) == null) {
+        context.goNamed(StartView.id);
+      } else {
+        context.goNamed(TasksView.id);
+      }
     });
   }
 }

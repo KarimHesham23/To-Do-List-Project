@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:to_do_list_app/constants.dart';
+import 'package:to_do_list_app/core/utils/get_locator.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/icon_user_item.dart';
 
 class IconsListView extends StatefulWidget {
@@ -29,8 +32,11 @@ class _IconsListViewState extends State<IconsListView> {
         itemCount: allIcons().length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {
+            onTap: () async {
               actiavteCounter = index;
+              await getIt
+                  .get<SharedPreferences>()
+                  .setInt(knumberIcon, index + 1);
               setState(() {});
             },
             child: IconUserItem(

@@ -122,7 +122,10 @@ class _AnimatedButtonState extends State<AnimatedButton>
             Tween(begin: const Offset(0, -1), end: const Offset(0, 0));
         return SlideTransition(
           position: animtionDialog.animate(
-            CurvedAnimation(parent: animation, curve: Curves.easeInOut),
+            CurvedAnimation(
+              parent: animation,
+              curve: Curves.easeInOutCubicEmphasized,
+            ),
           ),
           child: child,
         );

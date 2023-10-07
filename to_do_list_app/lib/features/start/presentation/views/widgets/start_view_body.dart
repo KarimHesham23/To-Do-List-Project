@@ -4,14 +4,9 @@ import 'package:to_do_list_app/core/utils/styles.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/animation_button.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/background_section.dart';
 
-class StartViewBody extends StatefulWidget {
+class StartViewBody extends StatelessWidget {
   const StartViewBody({super.key});
 
-  @override
-  State<StartViewBody> createState() => _StartViewBodyState();
-}
-
-class _StartViewBodyState extends State<StartViewBody> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -27,7 +22,7 @@ class _StartViewBodyState extends State<StartViewBody> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    AssetsApp.icon,
+                    AssetsApp.appIcon,
                     height: screenHeight * 0.2, // Adjust these values as needed
                     width: screenWidth * 0.6,
                   ),
