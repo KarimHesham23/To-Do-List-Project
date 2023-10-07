@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/assets.dart';
@@ -22,8 +23,17 @@ class TasksView extends StatelessWidget {
                 width: 40,
               ),
               Text(
-                getIt.get<SharedPreferences>().getString(kUserName)!,
+                getIt.get<SharedPreferences>().getString(kUserName) ?? "karim",
                 style: Styles.styleText18,
+              ),
+              IconButton(
+                onPressed: () {
+                  getIt.get<SharedPreferences>().clear();
+                },
+                icon: const Icon(
+                  FontAwesomeIcons.deleteLeft,
+                  color: Colors.white,
+                ),
               )
             ],
           )

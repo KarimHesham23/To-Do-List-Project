@@ -7,6 +7,7 @@ import 'package:to_do_list_app/core/utils/get_locator.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
 import 'package:to_do_list_app/core/widgets/custom_text_form_filed.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:to_do_list_app/features/start/presentation/views/widgets/animation_text.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/icons_list_view.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/sgin_in_button.dart';
 import 'package:to_do_list_app/features/tasks/presentation/views/tasks_view.dart';
@@ -51,13 +52,9 @@ class _SginInFormState extends State<SginInForm> {
           const SizedBox(
             height: 16,
           ),
-          Row(
-            children: [
-              Text(
-                "Your Icon",
-                style: Styles.styleText16,
-              ),
-            ],
+          Text(
+            "Your Icon",
+            style: Styles.styleText16,
           ),
           const SizedBox(
             height: 16,
@@ -71,6 +68,12 @@ class _SginInFormState extends State<SginInForm> {
               validataMethod(context);
             },
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Center(
+            child: TextAnimation(),
+          )
         ],
       ),
     );
