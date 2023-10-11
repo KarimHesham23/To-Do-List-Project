@@ -6,11 +6,10 @@ class CustomFrameAppBar extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        height: height * 0.112,
+        height: 94,
         decoration: const BoxDecoration(
           boxShadow: [
             BoxShadow(
