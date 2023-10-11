@@ -12,7 +12,7 @@ class SginInButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 24),
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
-            backgroundColor: kSecondaryColor,
+            backgroundColor: kSpecialColor,
             minimumSize: const Size(double.infinity, 56),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(

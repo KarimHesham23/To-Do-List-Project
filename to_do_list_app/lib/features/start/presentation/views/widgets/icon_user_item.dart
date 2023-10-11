@@ -14,7 +14,7 @@ class IconUserItem extends StatelessWidget {
       child: isActive
           ? CircleAvatar(
               radius: 36,
-              backgroundColor: kSecondaryColor,
+              backgroundColor: kSpecialColor,
               child: CircleAvatar(
                 radius: 32,
                 child: Image.asset(iconPath),

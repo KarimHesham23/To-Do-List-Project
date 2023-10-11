@@ -24,8 +24,7 @@ class SignInDialog extends StatelessWidget {
           color: kPrimaryColor.withOpacity(0.97),
           boxShadow: [
             BoxShadow(
-              color:
-                  kSecondaryColor.withOpacity(0.5), // Shadow color and opacity
+              color: kSpecialColor.withOpacity(0.5), // Shadow color and opacity
               spreadRadius: 5, // Spread radius
               blurRadius: 10, // Blur radius
               offset: const Offset(0, 3), // Offset from top left

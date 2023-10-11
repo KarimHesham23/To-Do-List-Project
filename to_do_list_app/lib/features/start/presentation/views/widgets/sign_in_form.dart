@@ -43,7 +43,7 @@ class _SginInFormState extends State<SginInForm> {
             hintText: "Enter Your Name",
             prefixIcon: const Icon(
               FontAwesomeIcons.person,
-              color: kSecondaryColor,
+              color: kSpecialColor,
             ),
             onSaved: (p0) {
               userName = p0;

@@ -47,10 +47,10 @@ class _AnimatedButtonState extends State<AnimatedButton>
             height: 60,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: kSecondaryColor,
+              color: kSpecialColor,
               gradient: const LinearGradient(
                 colors: [
-                  kSecondaryColor,
+                  kSpecialColor,
                   Colors.white,
                 ],
               ),
@@ -68,7 +68,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
               borderRadius: BorderRadius.circular(10),
               color: Colors.transparent,
               border: Border.all(
-                color: kSecondaryColor,
+                color: kSpecialColor,
               ),
             ),
             child: Center(

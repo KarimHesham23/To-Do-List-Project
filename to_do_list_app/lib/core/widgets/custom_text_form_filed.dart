@@ -26,7 +26,7 @@ class CustomTextFormFiled extends StatelessWidget {
       onSaved: onSaved,
       decoration: InputDecoration(
         filled: true,
-        fillColor: kFiledColorTextFiled,
+        fillColor: kSecondaryColor,
         hintText: hintText,
         hintStyle: Styles.styleText14.copyWith(color: Colors.white),
         prefixIcon: prefixIcon,
