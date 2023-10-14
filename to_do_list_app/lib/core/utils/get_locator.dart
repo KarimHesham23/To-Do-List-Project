@@ -9,5 +9,6 @@ setupLocator() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs;
   });
-  getIt.registerSingleton<PageController>(PageController(initialPage: 1));
+  getIt.registerSingleton<PageController>(
+      PageController(initialPage: 1, keepPage: true));
 }

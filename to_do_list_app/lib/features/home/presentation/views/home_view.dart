@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_list_app/features/home/presentation/manger/view_cubit/views_cubit.dart';
 import 'package:to_do_list_app/features/home/presentation/views/widgets/custom_bottom_bar.dart';
+import 'package:to_do_list_app/features/tasks/presentation/views/tasks_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -11,12 +12,12 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        onPageChanged: BlocProvider.of<ViewsCubit>(context).animateToTab,
+        onPageChanged: BlocProvider.of<ViewsCubit>(context).pageChange,
         controller: BlocProvider.of<ViewsCubit>(context).pageController,
         physics: const BouncingScrollPhysics(),
         children: const [
           Menu(),
-          Tasks(),
+          TasksView(),
           Calender(),
           Mine(),
         ],
@@ -35,22 +36,6 @@ class Menu extends StatelessWidget {
     return const Center(
       child: Text(
         "Menu",
-        style: TextStyle(
-          fontSize: 60,
-        ),
-      ),
-    );
-  }
-}
-
-class Tasks extends StatelessWidget {
-  const Tasks({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "Tasks",
         style: TextStyle(
           fontSize: 60,
         ),
