@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:to_do_list_app/features/home/presentation/views/home_view.dart';
 import 'package:to_do_list_app/features/splash/presentation/views/splash_view.dart';
 import 'package:to_do_list_app/features/start/presentation/views/start_view.dart';
 import 'package:to_do_list_app/features/tasks/presentation/views/tasks_view.dart';
@@ -8,6 +9,7 @@ abstract class AppRoute {
   static const kSplashView = "/";
   static const kStartView = "/start_view";
   static const kTaskView = "/task_view";
+  static const kHomeView = "/home_view";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -27,6 +29,13 @@ abstract class AppRoute {
         path: kTaskView,
         pageBuilder: (context, state) {
           return customAnimationRoute(state, const TasksView(), 1000);
+        },
+      ),
+      GoRoute(
+        name: HomeView.id,
+        path: kHomeView,
+        pageBuilder: (context, state) {
+          return customAnimationRoute(state, const HomeView(), 500);
         },
       ),
     ],

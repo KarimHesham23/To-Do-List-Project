@@ -7,10 +7,10 @@ import 'package:to_do_list_app/core/utils/get_locator.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
 import 'package:to_do_list_app/core/widgets/custom_text_form_filed.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:to_do_list_app/features/home/presentation/views/home_view.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/animation_text.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/icons_list_view.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/sgin_in_button.dart';
-import 'package:to_do_list_app/features/tasks/presentation/views/tasks_view.dart';
 
 class SginInForm extends StatefulWidget {
   const SginInForm({super.key});
@@ -85,7 +85,7 @@ class _SginInFormState extends State<SginInForm> {
       getIt.get<SharedPreferences>().setString(kUserName, userName!);
       AssetsApp.userIcon =
           "assets/memojis/Rectangle-${getIt.get<SharedPreferences>().getInt(knumberIcon)}.png";
-      context.goNamed(TasksView.id);
+      context.goNamed(HomeView.id);
     } else {
       setState(
         () {

@@ -5,8 +5,8 @@ import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/assets.dart';
 import 'package:to_do_list_app/core/utils/get_locator.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
+import 'package:to_do_list_app/features/home/presentation/views/home_view.dart';
 import 'package:to_do_list_app/features/start/presentation/views/start_view.dart';
-import 'package:to_do_list_app/features/tasks/presentation/views/tasks_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
@@ -94,7 +94,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       if (getIt.get<SharedPreferences>().getString(kUserName) == null) {
         context.goNamed(StartView.id);
       } else {
-        context.goNamed(TasksView.id);
+        context.goNamed(HomeView.id);
       }
     });
   }
