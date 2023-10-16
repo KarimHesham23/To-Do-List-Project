@@ -4,15 +4,15 @@ import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
 import 'package:to_do_list_app/features/tasks/presentation/views/widgets/tasks_item.dart';
 
-class TasksTile extends StatefulWidget {
-  const TasksTile({super.key, required this.titleTasks});
+class TasksExpansionTile extends StatefulWidget {
+  const TasksExpansionTile({super.key, required this.titleTasks});
   final String titleTasks;
 
   @override
-  State<TasksTile> createState() => _TasksTileState();
+  State<TasksExpansionTile> createState() => _TasksExpansionTileState();
 }
 
-class _TasksTileState extends State<TasksTile> {
+class _TasksExpansionTileState extends State<TasksExpansionTile> {
   bool expanded = false;
   bool expandedText = false;
 

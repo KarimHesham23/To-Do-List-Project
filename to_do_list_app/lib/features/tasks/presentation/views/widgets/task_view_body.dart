@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list_app/core/widgets/custom_app_bar.dart';
-import 'package:to_do_list_app/features/tasks/presentation/views/widgets/category_item.dart';
+import 'package:to_do_list_app/features/tasks/presentation/views/widgets/category_expansion_tile.dart';
 import 'package:to_do_list_app/features/tasks/presentation/views/widgets/new_task_button.dart';
-import 'package:to_do_list_app/features/tasks/presentation/views/widgets/tasks_tile.dart';
+import 'package:to_do_list_app/features/tasks/presentation/views/widgets/tasks_expansion_tile.dart';
 
 class TaskViewBody extends StatelessWidget {
   const TaskViewBody({super.key});
@@ -20,27 +20,27 @@ class TaskViewBody extends StatelessWidget {
             padding: EdgeInsets.zero,
             physics: const BouncingScrollPhysics(),
             children: const [
-              TasksTile(
+              TasksExpansionTile(
                 titleTasks: "Previous Tasks",
               ),
               SizedBox(
                 height: 20,
               ),
-              TasksTile(
+              TasksExpansionTile(
                 titleTasks: "Today Tasks",
               ),
               SizedBox(
                 height: 20,
               ),
-              TasksTile(
+              CategoryExpansionTile(),
+              SizedBox(
+                height: 20,
+              ),
+              TasksExpansionTile(
                 titleTasks: "Completed Tasks",
               ),
             ],
           ),
-        ),
-        const CategoryItem(),
-        const SizedBox(
-          height: 50,
         ),
         const NewTaskButton()
       ],

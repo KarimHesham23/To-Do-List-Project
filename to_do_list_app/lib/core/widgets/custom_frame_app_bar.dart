@@ -22,7 +22,7 @@ class CustomFrameAppBar extends StatelessWidget {
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20)),
         ),
-        child: child,
+        child: Center(child: child),
       ),
     );
   }
