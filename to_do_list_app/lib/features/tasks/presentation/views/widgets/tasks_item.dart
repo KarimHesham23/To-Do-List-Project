@@ -7,7 +7,8 @@ class TasksItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      color: kPrimaryColor,
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -19,7 +20,7 @@ class TasksItem extends StatelessWidget {
         child: Row(
           children: [
             const Icon(
-              Icons.pending,
+              Icons.pending_outlined,
               color: Color(
                 0xff777E99,
               ),
