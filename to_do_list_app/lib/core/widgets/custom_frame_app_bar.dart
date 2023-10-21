@@ -19,8 +19,9 @@ class CustomFrameAppBar extends StatelessWidget {
           ],
           color: kSecondaryColor,
           borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
         ),
         child: Center(child: child),
       ),

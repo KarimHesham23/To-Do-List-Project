@@ -23,6 +23,13 @@ class DoItNow extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routerConfig: AppRoute.router,
         theme: ThemeData.dark().copyWith(
+          inputDecorationTheme: const InputDecorationTheme(
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: kSpecialColor,
+              ),
+            ),
+          ),
           scaffoldBackgroundColor: kPrimaryColor,
           textTheme: GoogleFonts.robotoTextTheme(ThemeData.dark().textTheme),
         ),

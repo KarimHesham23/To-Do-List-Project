@@ -5,7 +5,7 @@ import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/assets.dart';
 import 'package:to_do_list_app/core/utils/get_locator.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
-import 'package:to_do_list_app/core/widgets/custom_text_form_filed.dart';
+import 'package:to_do_list_app/features/start/presentation/views/widgets/custom_border_text_form_filed.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:to_do_list_app/features/home/presentation/views/home_view.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/animation_text.dart';
@@ -39,7 +39,7 @@ class _SginInFormState extends State<SginInForm> {
           const SizedBox(
             height: 12,
           ),
-          CustomTextFormFiled(
+          CustomBorderTextFormFiled(
             hintText: "Enter Your Name",
             prefixIcon: const Icon(
               FontAwesomeIcons.person,

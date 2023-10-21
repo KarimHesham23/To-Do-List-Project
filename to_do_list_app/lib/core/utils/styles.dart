@@ -23,4 +23,7 @@ abstract class Styles {
     fontSize: 18,
     fontWeight: FontWeight.bold,
   );
+  static var styleText20 = const TextStyle(
+    fontSize: 20,
+  );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/models/category_model.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
@@ -36,8 +37,8 @@ class _TasksTileState extends State<CategoryExpansionTile> {
         icon: Icons.note_alt,
         color: const Color(0xff34B467)),
     CategoryModel(
-      categoryName: "Another",
-      icon: Icons.info,
+      categoryName: "No Category",
+      icon: Icons.no_adult_content,
       color: Colors.grey,
     ),
   ];
@@ -47,35 +48,43 @@ class _TasksTileState extends State<CategoryExpansionTile> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: ExpansionTile(
-        childrenPadding: EdgeInsets.zero,
-        title: Text(
-          "Category",
-          style: Styles.styleText14,
+      child: Theme(
+        data: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: kPrimaryColor,
+          textTheme: GoogleFonts.robotoTextTheme(ThemeData.dark().textTheme),
+          highlightColor: kSecondaryColor,
+          splashColor: kSecondaryColor,
         ),
-        trailing: Icon(
-          expanded
-              ? CupertinoIcons.chevron_up_circle
-              : CupertinoIcons.chevron_down_circle,
-          size: 18,
+        child: ExpansionTile(
+          childrenPadding: EdgeInsets.zero,
+          title: Text(
+            "Category",
+            style: Styles.styleText14,
+          ),
+          trailing: Icon(
+            expanded
+                ? CupertinoIcons.chevron_up_circle
+                : CupertinoIcons.chevron_down_circle,
+            size: 18,
+          ),
+          onExpansionChanged: (value) {
+            setState(() {
+              expanded = value;
+            });
+          },
+          backgroundColor: kSecondaryColor,
+          collapsedBackgroundColor: kSecondaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          collapsedShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          iconColor: Colors.white,
+          collapsedIconColor: Colors.white,
+          textColor: Colors.white,
+          children: childrenWidgets,
         ),
-        onExpansionChanged: (value) {
-          setState(() {
-            expanded = value;
-          });
-        },
-        backgroundColor: kSecondaryColor,
-        collapsedBackgroundColor: kSecondaryColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        collapsedShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        iconColor: Colors.white,
-        collapsedIconColor: Colors.white,
-        textColor: Colors.white,
-        children: childrenWidgets,
       ),
     );
   }

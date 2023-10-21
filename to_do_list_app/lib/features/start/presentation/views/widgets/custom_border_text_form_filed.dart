@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
 
-class CustomTextFormFiled extends StatelessWidget {
-  const CustomTextFormFiled({
+class CustomBorderTextFormFiled extends StatelessWidget {
+  const CustomBorderTextFormFiled({
     super.key,
     required this.onSaved,
     required this.prefixIcon,
