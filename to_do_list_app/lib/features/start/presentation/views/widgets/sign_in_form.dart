@@ -79,7 +79,7 @@ class _SginInFormState extends State<SginInForm> {
     );
   }
 
-  void validataMethod(BuildContext context) {
+  void validataMethod(BuildContext context) async {
     if (fromKey.currentState!.validate()) {
       fromKey.currentState!.save();
       getIt.get<SharedPreferences>().setString(kUserName, userName!);

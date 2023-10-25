@@ -7,14 +7,19 @@ class CreateTaskDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: CustomFrameContainer(
-        height: 266,
-        width: 328,
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.transparent,
-          body: CreateTaskBody(),
+    return Center(
+      child: SafeArea(
+        child: CustomFrameContainer(
+          margin: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          height: 266,
+          width: 328,
+          child: const Scaffold(
+            resizeToAvoidBottomInset: false,
+            backgroundColor: Colors.transparent,
+            body: CreateTaskBody(),
+          ),
         ),
       ),
     );

@@ -9,14 +9,17 @@ class CustomFrameContainer extends StatelessWidget {
     required this.height,
     required this.width,
     this.borderColor = kSpecialColor,
+    this.margin,
   });
   final Widget child;
   final double height;
   final double width;
   final Color borderColor;
+  final EdgeInsetsGeometry? margin;
   @override
   Widget build(BuildContext context) {
     return Container(
+        margin: margin,
         height: height,
         width: width,
         decoration: BoxDecoration(

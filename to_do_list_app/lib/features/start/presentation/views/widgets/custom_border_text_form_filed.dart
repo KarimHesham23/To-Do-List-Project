@@ -41,7 +41,7 @@ class CustomBorderTextFormFiled extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(
-            color: Color(0xff2196F3),
+            color: kSpecialColor,
           ),
         ),
       ),

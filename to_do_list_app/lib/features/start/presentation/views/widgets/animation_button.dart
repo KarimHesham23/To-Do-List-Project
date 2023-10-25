@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list_app/constants.dart';
+import 'package:to_do_list_app/core/helpers/function.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
 import 'package:to_do_list_app/features/start/presentation/views/widgets/sign_in_dialog.dart';
 
@@ -101,7 +102,8 @@ class _AnimatedButtonState extends State<AnimatedButton>
     Future.delayed(
       const Duration(milliseconds: 500),
       () {
-        customSignInDialog(context);
+        AppFuctions.createGeneralDialog(context,
+            barrierLabel: "Sign In", dialogWidget: const SignInDialog());
       },
     );
     Future.delayed(
@@ -110,31 +112,6 @@ class _AnimatedButtonState extends State<AnimatedButton>
       ),
       () {
         _controllerButton.reverse();
-      },
-    );
-  }
-
-  void customSignInDialog(BuildContext context) {
-    showGeneralDialog(
-      transitionDuration: const Duration(milliseconds: 500),
-      transitionBuilder: (context, animation, secondaryAnimation, child) {
-        Tween<Offset> animtionDialog =
-            Tween(begin: const Offset(0, -1), end: const Offset(0, 0));
-        return SlideTransition(
-          position: animtionDialog.animate(
-            CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeInOutCubicEmphasized,
-            ),
-          ),
-          child: child,
-        );
-      },
-      barrierDismissible: true,
-      barrierLabel: "Sign In",
-      context: context,
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return const SignInDialog();
       },
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/assets.dart';
+import 'package:to_do_list_app/core/utils/get_locator.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
 import 'package:to_do_list_app/core/widgets/custom_frame_app_bar.dart';
 
@@ -52,7 +54,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 hintText: "Search",
                 hintStyle: Styles.styleText14.copyWith(color: Colors.grey),
                 prefixIcon: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    getIt.get<SharedPreferences>().clear();
+                  },
                   icon: const Icon(
                     Icons.arrow_back,
                     size: 26,

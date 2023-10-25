@@ -12,6 +12,12 @@ class IconsListView extends StatefulWidget {
 }
 
 class _IconsListViewState extends State<IconsListView> {
+  @override
+  void initState() {
+    getIt.get<SharedPreferences>().setInt(knumberIcon, 1);
+    super.initState();
+  }
+
   int actiavteCounter = 0;
   List<String> allIcons() {
     List<String> icons = [];
