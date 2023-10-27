@@ -18,31 +18,34 @@ class StartViewBody extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    AssetsApp.appIcon,
-                    height: screenHeight * 0.2, // Adjust these values as needed
-                    width: screenWidth * 0.6,
-                  ),
-                  Text(
-                    "DoItNow",
-                    style: Styles.logoTextSyle.copyWith(
-                      fontSize: screenHeight * 0.06, // Adjust the font size
-                      fontWeight: FontWeight.bold,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      AssetsApp.appIcon,
+                      height:
+                          screenHeight * 0.2, // Adjust these values as needed
+                      width: screenWidth * 0.6,
                     ),
-                  ),
-                  Text(
-                    "A to-do list is your roadmap to success, keeping you on track and ensuring you never lose sight of your goals. Embrace its power and watch your productivity soar.",
-                    style: Styles.styleText14,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  AnimatedButton(width: screenWidth * 0.85),
-                ],
+                    Text(
+                      "DoItNow",
+                      style: Styles.logoTextSyle.copyWith(
+                        fontSize: screenHeight * 0.06, // Adjust the font size
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "A to-do list is your roadmap to success, keeping you on track and ensuring you never lose sight of your goals. Embrace its power and watch your productivity soar.",
+                      style: Styles.styleText14,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    AnimatedButton(width: screenWidth * 0.85),
+                  ],
+                ),
               ),
             ),
           ),

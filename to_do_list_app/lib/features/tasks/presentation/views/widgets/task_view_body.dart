@@ -1,31 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/widgets/custom_app_bar.dart';
 import 'package:to_do_list_app/features/tasks/presentation/views/widgets/category_expansion_tile.dart';
-import 'package:to_do_list_app/features/tasks/presentation/views/widgets/new_task_button.dart';
 import 'package:to_do_list_app/features/tasks/presentation/views/widgets/tasks_expansion_tile.dart';
 
 class TaskViewBody extends StatelessWidget {
-  const TaskViewBody({super.key});
+  const TaskViewBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CustomAppBar(),
-        const SizedBox(
-          height: 20,
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
+      slivers: <Widget>[
+        const SliverAppBar(
+          backgroundColor: kPrimaryColor,
+          elevation: 0,
+          pinned: true,
+          expandedHeight: 97.0,
+          flexibleSpace: CustomAppBar(),
         ),
-        Expanded(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            physics: const BouncingScrollPhysics(),
-            children: const [
+        const SliverToBoxAdapter(
+          child: SizedBox(
+            height: 20,
+          ),
+        ),
+        SliverList(
+          delegate: SliverChildListDelegate(
+            const [
               TasksExpansionTile(
                 titleTasks: "Previous Tasks",
               ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: 20),
               TasksExpansionTile(
                 titleTasks: "Today Tasks",
               ),
@@ -42,7 +47,6 @@ class TaskViewBody extends StatelessWidget {
             ],
           ),
         ),
-        const NewTaskButton()
       ],
     );
   }
