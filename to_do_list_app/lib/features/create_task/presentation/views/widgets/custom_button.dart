@@ -8,10 +8,12 @@ class CustomButton extends StatelessWidget {
       required this.contentButton,
       required this.checkFill,
       required this.width,
-      required this.onTap});
+      required this.onTap,
+      required this.height});
   final String contentButton;
   final bool checkFill;
   final double width;
+  final double height;
   final void Function() onTap;
 
   @override
@@ -19,7 +21,7 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 30,
+        height: height,
         width: width,
         decoration: BoxDecoration(
           color: checkFill ? kSpecialColor : kSecondaryColor,
@@ -29,7 +31,7 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             contentButton,
-            style: Styles.styleText12.copyWith(
+            style: Styles.styleText14.copyWith(
               color: Colors.white,
             ),
           ),

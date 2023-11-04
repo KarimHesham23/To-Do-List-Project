@@ -14,8 +14,8 @@ class CategoryItem extends StatelessWidget {
       color: kPrimaryColor,
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: CustomFrameContainer(
-          height: 70,
-          width: 145,
+          // height: 70,
+          // width: 145,
           borderColor: category.color,
           child: Row(
             mainAxisSize: MainAxisSize.min,

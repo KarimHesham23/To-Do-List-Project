@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list_app/core/helpers/function.dart';
-import 'package:to_do_list_app/core/widgets/custom_frame_container.dart';
+import 'package:to_do_list_app/core/widgets/create_animate_dialog.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/custom_button.dart';
+import 'package:to_do_list_app/features/create_task/presentation/views/widgets/date_time_body.dart';
 
-class ActionButtonsSection extends StatelessWidget {
+class ActionButtonsSection extends StatefulWidget {
   const ActionButtonsSection({super.key, required this.setTap});
   final void Function() setTap;
 
+  @override
+  State<ActionButtonsSection> createState() => _ActionButtonsSectionState();
+}
+
+class _ActionButtonsSectionState extends State<ActionButtonsSection> {
+  DateTime? beginDate;
+  DateTime? endDate;
+
+  String rangeButtonText = 'Select date';
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,44 +26,32 @@ class ActionButtonsSection extends StatelessWidget {
           contentButton: "Category",
           checkFill: false,
           width: 106,
+          height: 30,
           onTap: () {},
         ),
         CustomButton(
           contentButton: "Date & Time",
           checkFill: false,
           width: 106,
+          height: 30,
           onTap: () {
-            AppFuctions.createGeneralDialog(context,
-                barrierLabel: "date and time",
-                dialogWidget: const DateTimeDialog());
+            AppFuctions.createGeneralDialog(
+              context,
+              barrierLabel: "date and time",
+              dialogWidget: const CreateAnimatedDialog(
+                dialogBody: DateTimeBody(),
+              ),
+            );
           },
         ),
         CustomButton(
           contentButton: "Set",
           checkFill: true,
           width: 76,
-          onTap: setTap,
+          height: 30,
+          onTap: widget.setTap,
         ),
       ],
-    );
-  }
-}
-
-class DateTimeDialog extends StatelessWidget {
-  const DateTimeDialog({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: CustomFrameContainer(
-        height: MediaQuery.of(context).size.height * 0.79,
-        width: MediaQuery.of(context).size.width * 0.9,
-        child: const Scaffold(
-          resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.transparent,
-          body: SizedBox(),
-        ),
-      ),
     );
   }
 }

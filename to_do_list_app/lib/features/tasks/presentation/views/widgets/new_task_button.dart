@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/helpers/function.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
-import 'package:to_do_list_app/features/create_task/presentation/views/widgets/create_task_dialog.dart';
+import 'package:to_do_list_app/core/widgets/create_animate_dialog.dart';
+import 'package:to_do_list_app/features/create_task/presentation/views/widgets/new_task_dialog_body.dart';
 
 class NewTaskButton extends StatelessWidget {
   const NewTaskButton({super.key});
@@ -16,12 +17,12 @@ class NewTaskButton extends StatelessWidget {
         vertical: 16,
       ),
       child: ElevatedButton(
-        onPressed: () {
-          AppFuctions.createGeneralDialog(
-            context,
-            barrierLabel: "Create task",
-            dialogWidget: const CreateTaskDialog(),
-          );
+        onPressed: () async {
+          AppFuctions.createGeneralDialog(context,
+              barrierLabel: "create task",
+              dialogWidget: const CreateAnimatedDialog(
+                dialogBody: NewTaskDialogBody(),
+              ));
         },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(

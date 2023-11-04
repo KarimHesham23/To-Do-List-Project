@@ -23,6 +23,7 @@ class DoItNow extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routerConfig: AppRoute.router,
         theme: ThemeData.dark().copyWith(
+          dialogBackgroundColor: Colors.transparent,
           inputDecorationTheme: const InputDecorationTheme(
             focusedBorder: UnderlineInputBorder(
               borderSide: BorderSide(
