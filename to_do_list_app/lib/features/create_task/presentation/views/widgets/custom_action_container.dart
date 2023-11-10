@@ -39,12 +39,7 @@ class CustomActionContainer extends StatelessWidget {
                   const SizedBox(
                     width: 4,
                   ),
-                  Text(
-                    text,
-                    style: Styles.styleText14.copyWith(
-                      color: const Color(0xffA1A1C1),
-                    ),
-                  )
+                  Text(text, style: Styles.styleText14)
                 ],
               ),
               Text(trailText, style: Styles.styleText12)

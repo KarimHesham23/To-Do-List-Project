@@ -16,9 +16,7 @@ class DateTimeBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          const Expanded(
-            child: CustomCalender(),
-          ),
+          const CustomCalender(),
           const SizedBox(
             height: 32,
           ),

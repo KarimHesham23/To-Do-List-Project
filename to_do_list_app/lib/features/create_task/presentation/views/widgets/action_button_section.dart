@@ -4,19 +4,10 @@ import 'package:to_do_list_app/core/widgets/create_animate_dialog.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/custom_button.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/date_time_body.dart';
 
-class ActionButtonsSection extends StatefulWidget {
+class ActionButtonsSection extends StatelessWidget {
   const ActionButtonsSection({super.key, required this.setTap});
   final void Function() setTap;
 
-  @override
-  State<ActionButtonsSection> createState() => _ActionButtonsSectionState();
-}
-
-class _ActionButtonsSectionState extends State<ActionButtonsSection> {
-  DateTime? beginDate;
-  DateTime? endDate;
-
-  String rangeButtonText = 'Select date';
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -49,7 +40,7 @@ class _ActionButtonsSectionState extends State<ActionButtonsSection> {
           checkFill: true,
           width: 76,
           height: 30,
-          onTap: widget.setTap,
+          onTap: setTap,
         ),
       ],
     );
