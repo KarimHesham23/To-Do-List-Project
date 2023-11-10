@@ -9,62 +9,70 @@ class DateTimeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 30,
-        horizontal: 12,
+      padding: const EdgeInsets.only(
+        top: 20,
+        left: 12,
+        right: 12,
+        bottom: 15,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          const CustomCalender(),
-          const SizedBox(
-            height: 32,
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: <Widget>[
+          const SliverToBoxAdapter(
+            child: CustomCalender(),
           ),
-          CustomActionContainer(
+          SliverList(
+              delegate: SliverChildListDelegate([
+            const SizedBox(
+              height: 32,
+            ),
+            CustomActionContainer(
               onTap: () {},
               icon: Icons.schedule_outlined,
               text: "Time",
-              trailText: "No"),
-          const SizedBox(
-            height: 10,
-          ),
-          CustomActionContainer(
-              onTap: () {},
-              icon: Icons.notifications_outlined,
-              text: "Reminder",
-              trailText: "No"),
-          const SizedBox(
-            height: 10,
-          ),
-          CustomActionContainer(
-              onTap: () {},
-              icon: Icons.repeat_outlined,
-              text: "Repeat",
-              trailText: "No Repeat"),
-          const SizedBox(
-            height: 40,
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CustomButton(
-                  contentButton: "Cancel",
-                  checkFill: false,
+              trailText: "No",
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            CustomActionContainer(
+                onTap: () {},
+                icon: Icons.notifications_outlined,
+                text: "Reminder",
+                trailText: "No"),
+            const SizedBox(
+              height: 10,
+            ),
+            CustomActionContainer(
+                onTap: () {},
+                icon: Icons.repeat_outlined,
+                text: "Repeat",
+                trailText: "No Repeat"),
+            const SizedBox(
+              height: 40,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                CustomButton(
+                    contentButton: "Cancel",
+                    checkFill: false,
+                    width: 90,
+                    height: 42,
+                    onTap: () {}),
+                const SizedBox(
+                  width: 10,
+                ),
+                CustomButton(
+                  contentButton: "Done",
+                  checkFill: true,
                   width: 90,
                   height: 42,
-                  onTap: () {}),
-              const SizedBox(
-                width: 10,
-              ),
-              CustomButton(
-                contentButton: "Done",
-                checkFill: true,
-                width: 90,
-                height: 42,
-                onTap: () {},
-              )
-            ],
-          )
+                  onTap: () {},
+                )
+              ],
+            )
+          ]))
         ],
       ),
     );
