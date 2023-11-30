@@ -12,7 +12,7 @@ class CreateAnimatedDialog extends StatelessWidget {
       child: SafeArea(
         child: ConstrainedBox(
           constraints: BoxConstraints(
-            maxHeight: size.height * 0.75,
+            maxHeight: size.height * 0.76,
             maxWidth: size.width * 0.8,
           ),
           child: CustomFrameContainer(
