@@ -40,7 +40,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 140,
+      height: 121,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -100,7 +100,7 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
               useMagnifier: true,
               magnification: 1,
               overAndUnderCenterOpacity: 0.5,
-              physics: const FixedExtentScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               itemExtent: 40,
               perspective: 0.005,
               diameterRatio: 1.6,

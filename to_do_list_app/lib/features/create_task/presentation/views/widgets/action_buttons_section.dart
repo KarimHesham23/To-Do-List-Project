@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list_app/core/helpers/function.dart';
 import 'package:to_do_list_app/core/widgets/create_animate_dialog.dart';
-import 'package:to_do_list_app/features/create_task/presentation/views/widgets/custom_button.dart';
+import 'package:to_do_list_app/features/create_task/presentation/views/widgets/custom_action_button.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/date_time_body.dart';
 
 class ActionButtonsSection extends StatelessWidget {
@@ -13,14 +13,14 @@ class ActionButtonsSection extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CustomButton(
+        CustomActionButton(
           contentButton: "Category",
           checkFill: false,
           width: 106,
           height: 30,
           onTap: () {},
         ),
-        CustomButton(
+        CustomActionButton(
           contentButton: "Date & Time",
           checkFill: false,
           width: 106,
@@ -35,7 +35,7 @@ class ActionButtonsSection extends StatelessWidget {
             );
           },
         ),
-        CustomButton(
+        CustomActionButton(
           contentButton: "Set",
           checkFill: true,
           width: 76,

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:to_do_list_app/constants.dart';
 import 'package:to_do_list_app/core/utils/styles.dart';
 
-class CustomButton extends StatelessWidget {
-  const CustomButton(
+class CustomActionButton extends StatelessWidget {
+  const CustomActionButton(
       {super.key,
       required this.contentButton,
       required this.checkFill,
