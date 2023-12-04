@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_list_app/core/utils/styles.dart';
 import 'package:to_do_list_app/features/create_task/data/models/time_model.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/custom_action_button.dart';
-import 'package:to_do_list_app/features/create_task/presentation/views/widgets/custom_time_picker.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/fast_access_time.dart';
 
-class TimeDialogBody extends StatefulWidget {
-  const TimeDialogBody({super.key});
+class TimeBodyBottomSection extends StatefulWidget {
+  const TimeBodyBottomSection({super.key});
 
   @override
-  State<TimeDialogBody> createState() => _TimeDialogBodyState();
+  State<TimeBodyBottomSection> createState() => _TimeBodyBottomSectionState();
 }
 
-class _TimeDialogBodyState extends State<TimeDialogBody> {
+class _TimeBodyBottomSectionState extends State<TimeBodyBottomSection> {
   int activeCounter = 0;
   List<TimeModel> fastTimes = [
     TimeModel(hours: "00", minutes: "00", dayCycle: "00"),
@@ -29,45 +27,9 @@ class _TimeDialogBodyState extends State<TimeDialogBody> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 30,
-        horizontal: 12,
-      ),
+    return SliverToBoxAdapter(
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Set Time",
-                style: Styles.styleText16,
-              ),
-              Image.asset(
-                "assets/icons/time.png",
-              ),
-            ],
-          ),
-          const Expanded(
-            child: SizedBox(
-              height: 10,
-            ),
-          ),
-          Text(
-            "Type in Time",
-            style: Styles.styleText12.copyWith(
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(
-            height: 40,
-          ),
-          const CustomTimePicker(),
-          const Expanded(
-            child: SizedBox(
-              height: 18,
-            ),
-          ),
           GridView.builder(
             physics: const ClampingScrollPhysics(),
             padding: EdgeInsets.zero,

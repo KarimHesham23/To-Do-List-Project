@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_list_app/core/utils/styles.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/digits_of_time.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/day_cycle_clock.dart';
 
@@ -39,85 +40,105 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 121,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 50,
-            child: ListWheelScrollView.useDelegate(
-              controller: hourController,
-              onSelectedItemChanged: (value) {},
-              useMagnifier: true,
-              magnification: 1,
-              overAndUnderCenterOpacity: 0.5,
-              physics: const FixedExtentScrollPhysics(),
-              itemExtent: 50,
-              perspective: 0.005,
-              diameterRatio: 1.6,
-              childDelegate: ListWheelChildLoopingListDelegate(
-                children: hourList,
-              ),
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          "Type in Time",
+          style: Styles.styleText12.copyWith(
+            color: Colors.white,
           ),
-          const SizedBox(
-            width: 18,
-            child: Center(
-              child: Text(
-                ":",
-                style: TextStyle(
-                  fontSize: 40,
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        SizedBox(
+          height: 121,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 50,
+                child: ListWheelScrollView.useDelegate(
+                  controller: hourController,
+                  onSelectedItemChanged: (value) {},
+                  useMagnifier: true,
+                  magnification: 1,
+                  overAndUnderCenterOpacity: 0.5,
+                  physics: const FixedExtentScrollPhysics(),
+                  itemExtent: 50,
+                  perspective: 0.005,
+                  diameterRatio: 1.6,
+                  childDelegate: ListWheelChildLoopingListDelegate(
+                    children: hourList,
+                  ),
                 ),
               ),
-            ),
-          ),
-          SizedBox(
-            width: 50,
-            child: ListWheelScrollView.useDelegate(
-              onSelectedItemChanged: (value) {},
-              controller: minuteController,
-              useMagnifier: true,
-              magnification: 1,
-              overAndUnderCenterOpacity: 0.5,
-              physics: const FixedExtentScrollPhysics(),
-              itemExtent: 50,
-              perspective: 0.005,
-              diameterRatio: 1.6,
-              childDelegate: ListWheelChildLoopingListDelegate(
-                children: minuteList,
+              const SizedBox(
+                width: 18,
+                child: Center(
+                  child: Text(
+                    ":",
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          SizedBox(
-            width: 40,
-            child: ListWheelScrollView.useDelegate(
-              onSelectedItemChanged: (value) {},
-              controller: dayCycleClockController,
-              useMagnifier: true,
-              magnification: 1,
-              overAndUnderCenterOpacity: 0.5,
-              physics: const BouncingScrollPhysics(),
-              itemExtent: 40,
-              perspective: 0.005,
-              diameterRatio: 1.6,
-              childDelegate: ListWheelChildBuilderDelegate(
-                childCount: 2,
-                builder: (context, index) {
-                  if (index == 0) {
-                    return const DayCycleClock(isItAm: true);
-                  } else {
-                    return const DayCycleClock(isItAm: false);
-                  }
-                },
+              SizedBox(
+                width: 50,
+                child: ListWheelScrollView.useDelegate(
+                  onSelectedItemChanged: (value) {},
+                  controller: minuteController,
+                  useMagnifier: true,
+                  magnification: 1,
+                  overAndUnderCenterOpacity: 0.5,
+                  physics: const FixedExtentScrollPhysics(),
+                  itemExtent: 50,
+                  perspective: 0.005,
+                  diameterRatio: 1.6,
+                  childDelegate: ListWheelChildLoopingListDelegate(
+                    children: minuteList,
+                  ),
+                ),
               ),
-            ),
+              const SizedBox(
+                width: 10,
+              ),
+              SizedBox(
+                width: 40,
+                child: ListWheelScrollView.useDelegate(
+                  onSelectedItemChanged: (value) {},
+                  controller: dayCycleClockController,
+                  useMagnifier: true,
+                  magnification: 1,
+                  overAndUnderCenterOpacity: 0.5,
+                  physics: const BouncingScrollPhysics(),
+                  itemExtent: 40,
+                  perspective: 0.005,
+                  diameterRatio: 1.6,
+                  childDelegate: ListWheelChildBuilderDelegate(
+                    childCount: 2,
+                    builder: (context, index) {
+                      if (index == 0) {
+                        return const DayCycleClock(isItAm: true);
+                      } else {
+                        return const DayCycleClock(isItAm: false);
+                      }
+                    },
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+        const SizedBox(
+          height: 18,
+        ),
+      ],
     );
   }
 }

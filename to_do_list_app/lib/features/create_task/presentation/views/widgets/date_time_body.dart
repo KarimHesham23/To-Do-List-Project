@@ -4,7 +4,7 @@ import 'package:to_do_list_app/core/widgets/create_animate_dialog.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/custom_action_container.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/custom_action_button.dart';
 import 'package:to_do_list_app/features/create_task/presentation/views/widgets/custom_calender.dart';
-import 'package:to_do_list_app/features/create_task/presentation/views/widgets/time_body.dart';
+import 'package:to_do_list_app/features/create_task/presentation/views/widgets/time_dialog_body.dart';
 
 class DateTimeBody extends StatelessWidget {
   const DateTimeBody({super.key});
